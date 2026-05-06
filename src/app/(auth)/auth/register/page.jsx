@@ -5,7 +5,7 @@ import Link from "next/link";
 const RegisterPage = () => {
 
     return (
-        <div className="w-full min-h-screen flex items-center justify-center">
+        <div className="w-full min-h-screen flex items-center justify-center px-5">
             <div className="w-full max-w-[350px]">
                 <FormLogo />
                 <div className="w-full mt-[30px]">
