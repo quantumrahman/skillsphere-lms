@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import FormInput from "../../Inputs/FormInput/FormInput";
+import { authClient } from "@/lib/auth-client";
 
 const LoginForm = () => {
 
@@ -26,7 +27,7 @@ const LoginForm = () => {
         }));
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
 
         let errors = {};
@@ -53,7 +54,23 @@ const LoginForm = () => {
             return;
         };
 
-        console.log(formData);
+        const { data, error } = await authClient.signIn.email({
+            email: email,
+            password: password
+        });
+
+        if (data) {
+            console.log("Login successfully!", data);
+
+            setFormData({
+                email: "",
+                password: ""
+            });
+
+            setErrors({});
+        };
+
+        console.log(error);
     };
 
     return (
