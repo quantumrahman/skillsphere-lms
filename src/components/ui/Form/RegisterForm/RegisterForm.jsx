@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import FormInput from "../../Inputs/FormInput/FormInput";
+import { authClient } from "@/lib/auth-client";
 
 const RegisterForm = () => {
 
@@ -28,7 +29,7 @@ const RegisterForm = () => {
         }));
     };
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
 
         let errors = {};
@@ -68,7 +69,28 @@ const RegisterForm = () => {
             return;
         };
 
-        console.log(formData);
+        const { data, error } = await authClient.signUp.email({
+            name: name,
+            email: email,
+            password: password,
+            image: photo
+        });
+
+        if (data) {
+            console.log("Registation successfull!", data);
+
+            setFormData({
+                name: "",
+                email: "",
+                photo: "",
+                password: ""
+            });
+
+            setErrors({});
+        };
+
+        // console.log(data);
+        console.log(error);
     };
 
     return (
@@ -91,6 +113,7 @@ const RegisterForm = () => {
                             name="name" 
                             placeholder="Your name" 
                             onChange={handleOnChange}
+                            value={formData.name}
                             error={errors.name}
                         />
                         <div className="w-full h-5 flex items-center">
@@ -104,6 +127,7 @@ const RegisterForm = () => {
                             placeholder="Photo Url" 
                             onChange={handleOnChange}
                             error={errors.photo}
+                            value={formData.photo}
                         />
                         <div className="w-full h-5 flex items-center">
                             <span className="text-sm font-normal text-red-500">{errors.photo}</span>
@@ -117,6 +141,7 @@ const RegisterForm = () => {
                         placeholder="Email address" 
                         onChange={handleOnChange}
                         error={errors.email}
+                        value={formData.email}
                     />
                     <div className="w-full h-5 flex items-center">
                         <span className="text-sm font-normal text-red-500">{errors.email}</span>
@@ -129,6 +154,7 @@ const RegisterForm = () => {
                         placeholder="Password" 
                         onChange={handleOnChange}
                         error={errors.password}
+                        value={formData.password}
                     />
                     <div className="w-full h-5 flex items-center">
                         <span className="text-sm font-normal text-red-500">{errors.password}</span>
