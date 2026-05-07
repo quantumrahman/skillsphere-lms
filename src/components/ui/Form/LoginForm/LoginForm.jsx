@@ -76,6 +76,7 @@ const LoginForm = () => {
                         placeholder="Email" 
                         onChange={handleOnChange}
                         error={errors.email}
+                        value={formData.email}
                     />
                     <div className="w-full h-5 flex items-center">
                         <span className="text-sm font-normal text-red-500">{errors.email}</span>
@@ -88,6 +89,7 @@ const LoginForm = () => {
                         placeholder="Password" 
                         onChange={handleOnChange}
                         error={errors.password}
+                        value={formData.password}
                     />
                     <div className="w-full h-5 flex items-center">
                         <span className="text-sm font-normal text-red-500">{errors.password}</span>
