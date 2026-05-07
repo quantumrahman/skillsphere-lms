@@ -1,6 +1,8 @@
 import { Outfit } from "next/font/google";
 import "../globals.css";
 
+import Header from "@/components/shared/Header/Header";
+
 const outfit = Outfit({
     subsets: ["latin"],
     variable: "--font-outfit"
@@ -14,6 +16,7 @@ export const metadata = {
 const MainLayout = ({ children }) => {
     return (
         <div className={`${outfit.variable} w-full min-h-screen antialiased`}>
+            <Header />
             { children }
         </div>
     );
