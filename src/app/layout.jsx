@@ -17,7 +17,7 @@ const RootLayout = ({ children }) => {
             lang="en"
             className={`${outfit.variable} h-full antialiased`}
         >
-            <body className="w-full min-h-full">
+            <body className="w-full min-h-full bg-white">
                 {children}
             </body>
         </html>

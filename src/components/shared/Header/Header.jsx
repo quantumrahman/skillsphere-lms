@@ -57,7 +57,7 @@ const Header = () => {
 
     return (
         <div className="relative">
-            <div className="w-full bg-white/20 backdrop-blur-lg px-5 fixed top-0 left-0 z-10">
+            <div className="w-full bg-white/80 backdrop-blur-lg px-5 fixed top-0 left-0 z-10">
                 <div className="w-full border-b border-[#E0E5EB] py-[14px] md:py-5 lg:py-6">
                     <div className="w-full max-w-[1600px] mx-auto">
                         <header className="w-full flex items-center justify-between">
@@ -102,9 +102,9 @@ const Header = () => {
                                             type="button"
                                             aria-label="button"
                                             onClick={handleLogout}
-                                            className="h-[44px] px-10 rounded-full bg-[#4CCD99] cursor-pointer lg:rounded-full lg:h-[54px] flex items-center justify-center"
+                                            className="h-[44px] px-10 rounded-md bg-[#4CCD99] cursor-pointer lg:rounded-lg lg:h-[54px] flex items-center justify-center text-base font-bold text-white lg:text-lg"
                                         >
-                                            <span className="text-base font-bold text-white leading-0 lg:text-lg">Logout</span>
+                                            Logout
                                         </button>
                                     </>
                                     : 
@@ -119,9 +119,9 @@ const Header = () => {
                                             type="button"
                                             aria-label="button"
                                             onClick={handleLogin}
-                                            className="h-[44px] px-10 rounded-full bg-[#4CCD99] cursor-pointer lg:rounded-full lg:h-[54px] flex items-center justify-center"
+                                            className="h-[44px] px-10 rounded-md bg-[#4CCD99] cursor-pointer lg:rounded-lg lg:h-[54px] flex items-center justify-center text-base font-bold text-white lg:text-lg"
                                         >
-                                            <span className="text-base font-bold text-white leading-0 lg:text-lg">Login</span>
+                                            Login
                                         </button>
                                     </>
                                 }
